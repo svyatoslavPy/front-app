@@ -1,0 +1,1398 @@
+schema {
+  query: query_root
+  mutation: mutation_root
+  subscription: subscription_root
+}
+
+"""
+whether this query should be cached (Hasura Cloud only)
+"""
+directive @cached(
+  """
+  measured in seconds
+  """
+  ttl: Int! = 60
+
+  """
+  refresh the cache entry
+  """
+  refresh: Boolean! = false
+) on QUERY
+
+input ChangeStatusUserInput {
+  status: Boolean
+  userId: String
+}
+
+type ChangeStatusUserOutput {
+  status: Boolean
+}
+
+type Name {
+  first: String
+  last: String
+}
+
+"""
+columns and relationships of "Project"
+"""
+type Project {
+  domain: String!
+  hasuraPassword: uuid!
+  id: uuid!
+  name: String!
+  passwordhash: uuid!
+  postgresPassword: uuid!
+
+  """
+  An object relationship
+  """
+  provider: providers!
+  providersid: uuid!
+  type: String!
+  userId: String!
+  version: String!
+}
+
+input ProjectInput {
+  projectId: String!
+}
+
+"""
+aggregated selection of "Project"
+"""
+type Project_aggregate {
+  aggregate: Project_aggregate_fields
+  nodes: [Project!]!
+}
+
+"""
+aggregate fields of "Project"
+"""
+type Project_aggregate_fields {
+  count(columns: [Project_select_column!], distinct: Boolean): Int!
+  max: Project_max_fields
+  min: Project_min_fields
+}
+
+"""
+Boolean expression to filter rows from the table "Project". All fields are combined with a logical 'AND'.
+"""
+input Project_bool_exp {
+  _and: [Project_bool_exp!]
+  _not: Project_bool_exp
+  _or: [Project_bool_exp!]
+  domain: String_comparison_exp
+  hasuraPassword: uuid_comparison_exp
+  id: uuid_comparison_exp
+  name: String_comparison_exp
+  passwordhash: uuid_comparison_exp
+  postgresPassword: uuid_comparison_exp
+  provider: providers_bool_exp
+  providersid: uuid_comparison_exp
+  type: String_comparison_exp
+  userId: String_comparison_exp
+  version: String_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "Project"
+"""
+enum Project_constraint {
+  """
+  unique or primary key constraint on columns "name"
+  """
+  Project_name_key
+
+  """
+  unique or primary key constraint on columns "id"
+  """
+  Project_pkey
+}
+
+"""
+input type for inserting data into table "Project"
+"""
+input Project_insert_input {
+  domain: String
+  hasuraPassword: uuid
+  id: uuid
+  name: String
+  passwordhash: uuid
+  postgresPassword: uuid
+  provider: providers_obj_rel_insert_input
+  providersid: uuid
+  type: String
+  userId: String
+  version: String
+}
+
+"""
+aggregate max on columns
+"""
+type Project_max_fields {
+  domain: String
+  hasuraPassword: uuid
+  id: uuid
+  name: String
+  passwordhash: uuid
+  postgresPassword: uuid
+  providersid: uuid
+  type: String
+  userId: String
+  version: String
+}
+
+"""
+aggregate min on columns
+"""
+type Project_min_fields {
+  domain: String
+  hasuraPassword: uuid
+  id: uuid
+  name: String
+  passwordhash: uuid
+  postgresPassword: uuid
+  providersid: uuid
+  type: String
+  userId: String
+  version: String
+}
+
+"""
+response of any mutation on the table "Project"
+"""
+type Project_mutation_response {
+  """
+  number of rows affected by the mutation
+  """
+  affected_rows: Int!
+
+  """
+  data from the rows affected by the mutation
+  """
+  returning: [Project!]!
+}
+
+"""
+on_conflict condition type for table "Project"
+"""
+input Project_on_conflict {
+  constraint: Project_constraint!
+  update_columns: [Project_update_column!]! = []
+  where: Project_bool_exp
+}
+
+"""
+Ordering options when selecting data from "Project".
+"""
+input Project_order_by {
+  domain: order_by
+  hasuraPassword: order_by
+  id: order_by
+  name: order_by
+  passwordhash: order_by
+  postgresPassword: order_by
+  provider: providers_order_by
+  providersid: order_by
+  type: order_by
+  userId: order_by
+  version: order_by
+}
+
+"""
+primary key columns input for table: Project
+"""
+input Project_pk_columns_input {
+  id: uuid!
+}
+
+"""
+select columns of table "Project"
+"""
+enum Project_select_column {
+  """
+  column name
+  """
+  domain
+
+  """
+  column name
+  """
+  hasuraPassword
+
+  """
+  column name
+  """
+  id
+
+  """
+  column name
+  """
+  name
+
+  """
+  column name
+  """
+  passwordhash
+
+  """
+  column name
+  """
+  postgresPassword
+
+  """
+  column name
+  """
+  providersid
+
+  """
+  column name
+  """
+  type
+
+  """
+  column name
+  """
+  userId
+
+  """
+  column name
+  """
+  version
+}
+
+"""
+input type for updating data in table "Project"
+"""
+input Project_set_input {
+  domain: String
+  hasuraPassword: uuid
+  id: uuid
+  name: String
+  passwordhash: uuid
+  postgresPassword: uuid
+  providersid: uuid
+  type: String
+  userId: String
+  version: String
+}
+
+"""
+Streaming cursor of the table "Project"
+"""
+input Project_stream_cursor_input {
+  """
+  Stream column input with initial value
+  """
+  initial_value: Project_stream_cursor_value_input!
+
+  """
+  cursor ordering
+  """
+  ordering: cursor_ordering
+}
+
+"""
+Initial value of the column from where the streaming should start
+"""
+input Project_stream_cursor_value_input {
+  domain: String
+  hasuraPassword: uuid
+  id: uuid
+  name: String
+  passwordhash: uuid
+  postgresPassword: uuid
+  providersid: uuid
+  type: String
+  userId: String
+  version: String
+}
+
+"""
+update columns of table "Project"
+"""
+enum Project_update_column {
+  """
+  column name
+  """
+  domain
+
+  """
+  column name
+  """
+  hasuraPassword
+
+  """
+  column name
+  """
+  id
+
+  """
+  column name
+  """
+  name
+
+  """
+  column name
+  """
+  passwordhash
+
+  """
+  column name
+  """
+  postgresPassword
+
+  """
+  column name
+  """
+  providersid
+
+  """
+  column name
+  """
+  type
+
+  """
+  column name
+  """
+  userId
+
+  """
+  column name
+  """
+  version
+}
+
+input Project_updates {
+  """
+  sets the columns of the filtered rows to the given values
+  """
+  _set: Project_set_input
+  where: Project_bool_exp!
+}
+
+type RecoveryAddresses {
+  created_at: String
+  id: String
+  updated_at: String
+  value: String
+  via: String
+}
+
+"""
+Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'.
+"""
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+
+  """
+  does the column match the given case-insensitive pattern
+  """
+  _ilike: String
+  _in: [String!]
+
+  """
+  does the column match the given POSIX regular expression, case insensitive
+  """
+  _iregex: String
+  _is_null: Boolean
+
+  """
+  does the column match the given pattern
+  """
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+
+  """
+  does the column NOT match the given case-insensitive pattern
+  """
+  _nilike: String
+  _nin: [String!]
+
+  """
+  does the column NOT match the given POSIX regular expression, case insensitive
+  """
+  _niregex: String
+
+  """
+  does the column NOT match the given pattern
+  """
+  _nlike: String
+
+  """
+  does the column NOT match the given POSIX regular expression, case sensitive
+  """
+  _nregex: String
+
+  """
+  does the column NOT match the given SQL regular expression
+  """
+  _nsimilar: String
+
+  """
+  does the column match the given POSIX regular expression, case sensitive
+  """
+  _regex: String
+
+  """
+  does the column match the given SQL regular expression
+  """
+  _similar: String
+}
+
+type Traits {
+  email: String
+  name: Name
+}
+
+type User {
+  created_at: String
+  id: String
+  metadata_public: String
+  recovery_addresses: [RecoveryAddresses]
+  schema_id: String
+  schema_url: String
+  state: String
+  state_changed_at: String
+  traits: Traits
+  updated_at: String
+  verifiable_addresses: [VerifiableAddresses]
+}
+
+type Users {
+  users: [User]
+}
+
+type VerifiableAddresses {
+  created_at: String
+  id: String
+  status: String
+  updated_at: String
+  value: String
+  verified: Boolean
+  via: String
+}
+
+"""
+ordering argument of a cursor
+"""
+enum cursor_ordering {
+  """
+  ascending ordering of the cursor
+  """
+  ASC
+
+  """
+  descending ordering of the cursor
+  """
+  DESC
+}
+
+scalar jsonb
+
+input jsonb_cast_exp {
+  String: String_comparison_exp
+}
+
+"""
+Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'.
+"""
+input jsonb_comparison_exp {
+  _cast: jsonb_cast_exp
+
+  """
+  is the column contained in the given json value
+  """
+  _contained_in: jsonb
+
+  """
+  does the column contain the given json value at the top level
+  """
+  _contains: jsonb
+  _eq: jsonb
+  _gt: jsonb
+  _gte: jsonb
+
+  """
+  does the string exist as a top-level key in the column
+  """
+  _has_key: String
+
+  """
+  do all of these strings exist as top-level keys in the column
+  """
+  _has_keys_all: [String!]
+
+  """
+  do any of these strings exist as top-level keys in the column
+  """
+  _has_keys_any: [String!]
+  _in: [jsonb!]
+  _is_null: Boolean
+  _lt: jsonb
+  _lte: jsonb
+  _neq: jsonb
+  _nin: [jsonb!]
+}
+
+"""
+mutation root
+"""
+type mutation_root {
+  """
+  changeStatusUser
+  """
+  changeStatusUser(
+    params: ChangeStatusUserInput!
+    project: ProjectInput!
+  ): ChangeStatusUserOutput
+
+  """
+  delete data from the table: "Project"
+  """
+  delete_Project(
+    """
+    filter the rows which have to be deleted
+    """
+    where: Project_bool_exp!
+  ): Project_mutation_response
+
+  """
+  delete single row from the table: "Project"
+  """
+  delete_Project_by_pk(id: uuid!): Project
+
+  """
+  delete data from the table: "providers"
+  """
+  delete_providers(
+    """
+    filter the rows which have to be deleted
+    """
+    where: providers_bool_exp!
+  ): providers_mutation_response
+
+  """
+  delete single row from the table: "providers"
+  """
+  delete_providers_by_pk(id: uuid!): providers
+
+  """
+  insert data into the table: "Project"
+  """
+  insert_Project(
+    """
+    the rows to be inserted
+    """
+    objects: [Project_insert_input!]!
+
+    """
+    upsert condition
+    """
+    on_conflict: Project_on_conflict
+  ): Project_mutation_response
+
+  """
+  insert a single row into the table: "Project"
+  """
+  insert_Project_one(
+    """
+    the row to be inserted
+    """
+    object: Project_insert_input!
+
+    """
+    upsert condition
+    """
+    on_conflict: Project_on_conflict
+  ): Project
+
+  """
+  insert data into the table: "providers"
+  """
+  insert_providers(
+    """
+    the rows to be inserted
+    """
+    objects: [providers_insert_input!]!
+
+    """
+    upsert condition
+    """
+    on_conflict: providers_on_conflict
+  ): providers_mutation_response
+
+  """
+  insert a single row into the table: "providers"
+  """
+  insert_providers_one(
+    """
+    the row to be inserted
+    """
+    object: providers_insert_input!
+
+    """
+    upsert condition
+    """
+    on_conflict: providers_on_conflict
+  ): providers
+
+  """
+  update data of the table: "Project"
+  """
+  update_Project(
+    """
+    sets the columns of the filtered rows to the given values
+    """
+    _set: Project_set_input
+
+    """
+    filter the rows which have to be updated
+    """
+    where: Project_bool_exp!
+  ): Project_mutation_response
+
+  """
+  update single row of the table: "Project"
+  """
+  update_Project_by_pk(
+    """
+    sets the columns of the filtered rows to the given values
+    """
+    _set: Project_set_input
+    pk_columns: Project_pk_columns_input!
+  ): Project
+
+  """
+  update multiples rows of table: "Project"
+  """
+  update_Project_many(
+    """
+    updates to execute, in order
+    """
+    updates: [Project_updates!]!
+  ): [Project_mutation_response]
+
+  """
+  update data of the table: "providers"
+  """
+  update_providers(
+    """
+    append existing jsonb value of filtered columns with new jsonb value
+    """
+    _append: providers_append_input
+
+    """
+    delete the field or element with specified path (for JSON arrays, negative integers count from the end)
+    """
+    _delete_at_path: providers_delete_at_path_input
+
+    """
+    delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array
+    """
+    _delete_elem: providers_delete_elem_input
+
+    """
+    delete key/value pair or string element. key/value pairs are matched based on their key value
+    """
+    _delete_key: providers_delete_key_input
+
+    """
+    prepend existing jsonb value of filtered columns with new jsonb value
+    """
+    _prepend: providers_prepend_input
+
+    """
+    sets the columns of the filtered rows to the given values
+    """
+    _set: providers_set_input
+
+    """
+    filter the rows which have to be updated
+    """
+    where: providers_bool_exp!
+  ): providers_mutation_response
+
+  """
+  update single row of the table: "providers"
+  """
+  update_providers_by_pk(
+    """
+    append existing jsonb value of filtered columns with new jsonb value
+    """
+    _append: providers_append_input
+
+    """
+    delete the field or element with specified path (for JSON arrays, negative integers count from the end)
+    """
+    _delete_at_path: providers_delete_at_path_input
+
+    """
+    delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array
+    """
+    _delete_elem: providers_delete_elem_input
+
+    """
+    delete key/value pair or string element. key/value pairs are matched based on their key value
+    """
+    _delete_key: providers_delete_key_input
+
+    """
+    prepend existing jsonb value of filtered columns with new jsonb value
+    """
+    _prepend: providers_prepend_input
+
+    """
+    sets the columns of the filtered rows to the given values
+    """
+    _set: providers_set_input
+    pk_columns: providers_pk_columns_input!
+  ): providers
+
+  """
+  update multiples rows of table: "providers"
+  """
+  update_providers_many(
+    """
+    updates to execute, in order
+    """
+    updates: [providers_updates!]!
+  ): [providers_mutation_response]
+}
+
+"""
+column ordering options
+"""
+enum order_by {
+  """
+  in ascending order, nulls last
+  """
+  asc
+
+  """
+  in ascending order, nulls first
+  """
+  asc_nulls_first
+
+  """
+  in ascending order, nulls last
+  """
+  asc_nulls_last
+
+  """
+  in descending order, nulls first
+  """
+  desc
+
+  """
+  in descending order, nulls first
+  """
+  desc_nulls_first
+
+  """
+  in descending order, nulls last
+  """
+  desc_nulls_last
+}
+
+"""
+columns and relationships of "providers"
+"""
+type providers {
+  id: uuid!
+  providers(
+    """
+    JSON select path
+    """
+    path: String
+  ): jsonb!
+  userId: String!
+}
+
+"""
+aggregated selection of "providers"
+"""
+type providers_aggregate {
+  aggregate: providers_aggregate_fields
+  nodes: [providers!]!
+}
+
+"""
+aggregate fields of "providers"
+"""
+type providers_aggregate_fields {
+  count(columns: [providers_select_column!], distinct: Boolean): Int!
+  max: providers_max_fields
+  min: providers_min_fields
+}
+
+"""
+append existing jsonb value of filtered columns with new jsonb value
+"""
+input providers_append_input {
+  providers: jsonb
+}
+
+"""
+Boolean expression to filter rows from the table "providers". All fields are combined with a logical 'AND'.
+"""
+input providers_bool_exp {
+  _and: [providers_bool_exp!]
+  _not: providers_bool_exp
+  _or: [providers_bool_exp!]
+  id: uuid_comparison_exp
+  providers: jsonb_comparison_exp
+  userId: String_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "providers"
+"""
+enum providers_constraint {
+  """
+  unique or primary key constraint on columns "id"
+  """
+  providers_pkey
+}
+
+"""
+delete the field or element with specified path (for JSON arrays, negative integers count from the end)
+"""
+input providers_delete_at_path_input {
+  providers: [String!]
+}
+
+"""
+delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array
+"""
+input providers_delete_elem_input {
+  providers: Int
+}
+
+"""
+delete key/value pair or string element. key/value pairs are matched based on their key value
+"""
+input providers_delete_key_input {
+  providers: String
+}
+
+"""
+input type for inserting data into table "providers"
+"""
+input providers_insert_input {
+  id: uuid
+  providers: jsonb
+  userId: String
+}
+
+"""
+aggregate max on columns
+"""
+type providers_max_fields {
+  id: uuid
+  userId: String
+}
+
+"""
+aggregate min on columns
+"""
+type providers_min_fields {
+  id: uuid
+  userId: String
+}
+
+"""
+response of any mutation on the table "providers"
+"""
+type providers_mutation_response {
+  """
+  number of rows affected by the mutation
+  """
+  affected_rows: Int!
+
+  """
+  data from the rows affected by the mutation
+  """
+  returning: [providers!]!
+}
+
+"""
+input type for inserting object relation for remote table "providers"
+"""
+input providers_obj_rel_insert_input {
+  data: providers_insert_input!
+
+  """
+  upsert condition
+  """
+  on_conflict: providers_on_conflict
+}
+
+"""
+on_conflict condition type for table "providers"
+"""
+input providers_on_conflict {
+  constraint: providers_constraint!
+  update_columns: [providers_update_column!]! = []
+  where: providers_bool_exp
+}
+
+"""
+Ordering options when selecting data from "providers".
+"""
+input providers_order_by {
+  id: order_by
+  providers: order_by
+  userId: order_by
+}
+
+"""
+primary key columns input for table: providers
+"""
+input providers_pk_columns_input {
+  id: uuid!
+}
+
+"""
+prepend existing jsonb value of filtered columns with new jsonb value
+"""
+input providers_prepend_input {
+  providers: jsonb
+}
+
+"""
+select columns of table "providers"
+"""
+enum providers_select_column {
+  """
+  column name
+  """
+  id
+
+  """
+  column name
+  """
+  providers
+
+  """
+  column name
+  """
+  userId
+}
+
+"""
+input type for updating data in table "providers"
+"""
+input providers_set_input {
+  id: uuid
+  providers: jsonb
+  userId: String
+}
+
+"""
+Streaming cursor of the table "providers"
+"""
+input providers_stream_cursor_input {
+  """
+  Stream column input with initial value
+  """
+  initial_value: providers_stream_cursor_value_input!
+
+  """
+  cursor ordering
+  """
+  ordering: cursor_ordering
+}
+
+"""
+Initial value of the column from where the streaming should start
+"""
+input providers_stream_cursor_value_input {
+  id: uuid
+  providers: jsonb
+  userId: String
+}
+
+"""
+update columns of table "providers"
+"""
+enum providers_update_column {
+  """
+  column name
+  """
+  id
+
+  """
+  column name
+  """
+  providers
+
+  """
+  column name
+  """
+  userId
+}
+
+input providers_updates {
+  """
+  append existing jsonb value of filtered columns with new jsonb value
+  """
+  _append: providers_append_input
+
+  """
+  delete the field or element with specified path (for JSON arrays, negative integers count from the end)
+  """
+  _delete_at_path: providers_delete_at_path_input
+
+  """
+  delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array
+  """
+  _delete_elem: providers_delete_elem_input
+
+  """
+  delete key/value pair or string element. key/value pairs are matched based on their key value
+  """
+  _delete_key: providers_delete_key_input
+
+  """
+  prepend existing jsonb value of filtered columns with new jsonb value
+  """
+  _prepend: providers_prepend_input
+
+  """
+  sets the columns of the filtered rows to the given values
+  """
+  _set: providers_set_input
+  where: providers_bool_exp!
+}
+
+type query_root {
+  """
+  fetch data from the table: "Project"
+  """
+  Project(
+    """
+    distinct select on columns
+    """
+    distinct_on: [Project_select_column!]
+
+    """
+    limit the number of rows returned
+    """
+    limit: Int
+
+    """
+    skip the first n rows. Use only with order_by
+    """
+    offset: Int
+
+    """
+    sort the rows by one or more columns
+    """
+    order_by: [Project_order_by!]
+
+    """
+    filter the rows returned
+    """
+    where: Project_bool_exp
+  ): [Project!]!
+
+  """
+  fetch aggregated fields from the table: "Project"
+  """
+  Project_aggregate(
+    """
+    distinct select on columns
+    """
+    distinct_on: [Project_select_column!]
+
+    """
+    limit the number of rows returned
+    """
+    limit: Int
+
+    """
+    skip the first n rows. Use only with order_by
+    """
+    offset: Int
+
+    """
+    sort the rows by one or more columns
+    """
+    order_by: [Project_order_by!]
+
+    """
+    filter the rows returned
+    """
+    where: Project_bool_exp
+  ): Project_aggregate!
+
+  """
+  fetch data from the table: "Project" using primary key columns
+  """
+  Project_by_pk(id: uuid!): Project
+
+  """
+  getUsers
+  """
+  getUsers(project: ProjectInput!): Users
+
+  """
+  fetch data from the table: "providers"
+  """
+  providers(
+    """
+    distinct select on columns
+    """
+    distinct_on: [providers_select_column!]
+
+    """
+    limit the number of rows returned
+    """
+    limit: Int
+
+    """
+    skip the first n rows. Use only with order_by
+    """
+    offset: Int
+
+    """
+    sort the rows by one or more columns
+    """
+    order_by: [providers_order_by!]
+
+    """
+    filter the rows returned
+    """
+    where: providers_bool_exp
+  ): [providers!]!
+
+  """
+  fetch aggregated fields from the table: "providers"
+  """
+  providers_aggregate(
+    """
+    distinct select on columns
+    """
+    distinct_on: [providers_select_column!]
+
+    """
+    limit the number of rows returned
+    """
+    limit: Int
+
+    """
+    skip the first n rows. Use only with order_by
+    """
+    offset: Int
+
+    """
+    sort the rows by one or more columns
+    """
+    order_by: [providers_order_by!]
+
+    """
+    filter the rows returned
+    """
+    where: providers_bool_exp
+  ): providers_aggregate!
+
+  """
+  fetch data from the table: "providers" using primary key columns
+  """
+  providers_by_pk(id: uuid!): providers
+}
+
+type subscription_root {
+  """
+  fetch data from the table: "Project"
+  """
+  Project(
+    """
+    distinct select on columns
+    """
+    distinct_on: [Project_select_column!]
+
+    """
+    limit the number of rows returned
+    """
+    limit: Int
+
+    """
+    skip the first n rows. Use only with order_by
+    """
+    offset: Int
+
+    """
+    sort the rows by one or more columns
+    """
+    order_by: [Project_order_by!]
+
+    """
+    filter the rows returned
+    """
+    where: Project_bool_exp
+  ): [Project!]!
+
+  """
+  fetch aggregated fields from the table: "Project"
+  """
+  Project_aggregate(
+    """
+    distinct select on columns
+    """
+    distinct_on: [Project_select_column!]
+
+    """
+    limit the number of rows returned
+    """
+    limit: Int
+
+    """
+    skip the first n rows. Use only with order_by
+    """
+    offset: Int
+
+    """
+    sort the rows by one or more columns
+    """
+    order_by: [Project_order_by!]
+
+    """
+    filter the rows returned
+    """
+    where: Project_bool_exp
+  ): Project_aggregate!
+
+  """
+  fetch data from the table: "Project" using primary key columns
+  """
+  Project_by_pk(id: uuid!): Project
+
+  """
+  fetch data from the table in a streaming manner: "Project"
+  """
+  Project_stream(
+    """
+    maximum number of rows returned in a single batch
+    """
+    batch_size: Int!
+
+    """
+    cursor to stream the results returned by the query
+    """
+    cursor: [Project_stream_cursor_input]!
+
+    """
+    filter the rows returned
+    """
+    where: Project_bool_exp
+  ): [Project!]!
+
+  """
+  fetch data from the table: "providers"
+  """
+  providers(
+    """
+    distinct select on columns
+    """
+    distinct_on: [providers_select_column!]
+
+    """
+    limit the number of rows returned
+    """
+    limit: Int
+
+    """
+    skip the first n rows. Use only with order_by
+    """
+    offset: Int
+
+    """
+    sort the rows by one or more columns
+    """
+    order_by: [providers_order_by!]
+
+    """
+    filter the rows returned
+    """
+    where: providers_bool_exp
+  ): [providers!]!
+
+  """
+  fetch aggregated fields from the table: "providers"
+  """
+  providers_aggregate(
+    """
+    distinct select on columns
+    """
+    distinct_on: [providers_select_column!]
+
+    """
+    limit the number of rows returned
+    """
+    limit: Int
+
+    """
+    skip the first n rows. Use only with order_by
+    """
+    offset: Int
+
+    """
+    sort the rows by one or more columns
+    """
+    order_by: [providers_order_by!]
+
+    """
+    filter the rows returned
+    """
+    where: providers_bool_exp
+  ): providers_aggregate!
+
+  """
+  fetch data from the table: "providers" using primary key columns
+  """
+  providers_by_pk(id: uuid!): providers
+
+  """
+  fetch data from the table in a streaming manner: "providers"
+  """
+  providers_stream(
+    """
+    maximum number of rows returned in a single batch
+    """
+    batch_size: Int!
+
+    """
+    cursor to stream the results returned by the query
+    """
+    cursor: [providers_stream_cursor_input]!
+
+    """
+    filter the rows returned
+    """
+    where: providers_bool_exp
+  ): [providers!]!
+}
+
+scalar uuid
+
+"""
+Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'.
+"""
+input uuid_comparison_exp {
+  _eq: uuid
+  _gt: uuid
+  _gte: uuid
+  _in: [uuid!]
+  _is_null: Boolean
+  _lt: uuid
+  _lte: uuid
+  _neq: uuid
+  _nin: [uuid!]
+}
