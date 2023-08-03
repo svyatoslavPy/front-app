@@ -57,9 +57,7 @@ export const ProjectCreate = () => {
                     type: "paid",
                   },
                 });
-                navigate(
-                  `/dashboard/projects/${project.data?.insert_Project_one?.id}`,
-                );
+                navigate(`/dashboard/projects/${project.data?.insert_Project_one?.id}`);
               })}
             >
               <Box display="grid" rowGap={2}>
@@ -76,9 +74,7 @@ export const ProjectCreate = () => {
                   fullWidth
                   type="type"
                   InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">.coreup.cc</InputAdornment>
-                    ),
+                    endAdornment: <InputAdornment position="end">.coreup.cc</InputAdornment>,
                   }}
                   {...register("domain")}
                 />

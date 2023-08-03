@@ -79,10 +79,7 @@ export const SingIn = () => {
                 {loginFlow?.ui?.nodes
                   .filter((node) => node.group !== "oidc")
                   .map((node: any) => {
-                    if (
-                      node.attributes.type === "submit" &&
-                      node.attributes.name === "method"
-                    ) {
+                    if (node.attributes.type === "submit" && node.attributes.name === "method") {
                       return (
                         <Grid item>
                           <Button fullWidth variant="contained" type="submit">

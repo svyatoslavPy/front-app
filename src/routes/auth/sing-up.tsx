@@ -17,9 +17,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 export const SingUp = () => {
   const { getRegistrationFlow, register: registerAction } = useAuth();
-  const [registrationFlow, setRegistrationFlow] = useState<RegistrationFlow>(
-    [] as any,
-  );
+  const [registrationFlow, setRegistrationFlow] = useState<RegistrationFlow>([] as any);
   const { register, handleSubmit } = useForm();
 
   useEffect(() => {
@@ -84,10 +82,7 @@ export const SingUp = () => {
                 {registrationFlow?.ui?.nodes
                   .filter((node) => node.group !== "oidc")
                   .map((node: any) => {
-                    if (
-                      node.attributes.type === "submit" &&
-                      node.attributes.name === "method"
-                    ) {
+                    if (node.attributes.type === "submit" && node.attributes.name === "method") {
                       return (
                         <Grid item>
                           <Button fullWidth variant="contained" type="submit">

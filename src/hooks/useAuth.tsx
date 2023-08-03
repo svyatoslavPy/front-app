@@ -1,12 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Configuration,
-  FrontendApi,
-  LoginFlow,
-  RegistrationFlow,
-  Session,
-} from "@ory/client";
+import { Configuration, FrontendApi, LoginFlow, RegistrationFlow, Session } from "@ory/client";
 
 const ory = new FrontendApi(
   new Configuration({

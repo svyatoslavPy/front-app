@@ -22,9 +22,7 @@ export const ProjectList = () => {
   return (
     <div>
       Projects Page
-      <button onClick={() => navigate("/dashboard/projects/create")}>
-        create
-      </button>
+      <button onClick={() => navigate("/dashboard/projects/create")}>create</button>
       {data?.Project.map((project) => <ProjectItem project={project} />)}
     </div>
   );
