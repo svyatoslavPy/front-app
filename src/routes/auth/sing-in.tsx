@@ -61,7 +61,7 @@ export const SingIn = () => {
                     onClick={() => {
                       const csfrToken = (
                         loginFlow?.ui?.nodes.find(
-                          (node: any) => node.attributes.name === "csrf_token"
+                          (node: any) => node.attributes.name === "csrf_token",
                         )?.attributes as any
                       ).value;
                       login(loginFlow.id, {
@@ -147,11 +147,7 @@ export const SingIn = () => {
             </form>
             <Typography paddingTop={2} variant="subtitle2" align="center">
               Don't have an account?&nbsp;
-              <Link
-                color="inherit"
-                component={RouterLink}
-                to="/sing-up"
-              >
+              <Link color="inherit" component={RouterLink} to="/sing-up">
                 Sign Up
               </Link>
             </Typography>

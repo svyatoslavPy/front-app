@@ -1,1 +1,1 @@
-export { ProjectRoot } from './project-root';
+export { ProjectRoot } from "./project-root";

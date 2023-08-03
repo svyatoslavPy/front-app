@@ -1,7 +1,6 @@
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-
 export const ProjectItem = ({
   project,
 }: {

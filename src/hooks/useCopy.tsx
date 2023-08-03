@@ -1,6 +1,6 @@
-export const useCopy = (text: string) => {
-	const handleCopyText = async () => {
-		return await navigator.clipboard.writeText(text)
-	}
-	return { handleCopyText }
-}
+export const useCopy = () => {
+  const handleCopyText = async (text: string) => {
+    return await navigator.clipboard.writeText(text);
+  };
+  return { handleCopyText };
+};

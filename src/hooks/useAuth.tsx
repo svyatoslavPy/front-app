@@ -15,7 +15,7 @@ const ory = new FrontendApi(
       // Ensures we send cookies in the CORS requests.
       withCredentials: true,
     },
-  })
+  }),
 );
 const AuthContext = createContext<{
   user: null | Session;
@@ -107,7 +107,7 @@ export const AuthProvider = ({ children }: { children: any }) => {
       login,
       logout,
     }),
-    [user]
+    [user],
   );
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

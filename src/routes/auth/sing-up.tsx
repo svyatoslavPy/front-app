@@ -18,10 +18,9 @@ import { Link as RouterLink } from "react-router-dom";
 export const SingUp = () => {
   const { getRegistrationFlow, register: registerAction } = useAuth();
   const [registrationFlow, setRegistrationFlow] = useState<RegistrationFlow>(
-    [] as any
+    [] as any,
   );
   const { register, handleSubmit } = useForm();
-
 
   useEffect(() => {
     (async () => setRegistrationFlow(await getRegistrationFlow()))();
@@ -67,7 +66,7 @@ export const SingUp = () => {
                     onClick={() => {
                       const csfrToken = (
                         registrationFlow?.ui?.nodes.find(
-                          (node: any) => node.attributes.name === "csrf_token"
+                          (node: any) => node.attributes.name === "csrf_token",
                         )?.attributes as any
                       ).value;
                       registerAction(registrationFlow.id, {
@@ -153,11 +152,7 @@ export const SingUp = () => {
             </form>
             <Typography paddingTop={2} variant="subtitle2" align="center">
               Have an account?&nbsp;
-              <Link
-                color="inherit"
-                component={RouterLink}
-                to="/sing-in"
-              >
+              <Link color="inherit" component={RouterLink} to="/sing-in">
                 Sign In
               </Link>
             </Typography>

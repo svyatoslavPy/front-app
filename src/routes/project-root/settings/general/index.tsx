@@ -24,7 +24,7 @@ export const GeneralSettings = () => {
             id: project.id,
           },
         });
-        navigate("/dashboard/projects")
+        navigate("/dashboard/projects");
       }}
     >
       delete

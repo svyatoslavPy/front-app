@@ -30,6 +30,7 @@ export const ProjectCreate = () => {
   const { register, handleSubmit } = useForm();
 
   if (loading) return <p>Loading...</p>;
+
   if (error) return <p>Error : {error.message}</p>;
 
   console.log(data);
@@ -57,7 +58,7 @@ export const ProjectCreate = () => {
                   },
                 });
                 navigate(
-                  `/dashboard/projects/${project.data?.insert_Project_one?.id}`
+                  `/dashboard/projects/${project.data?.insert_Project_one?.id}`,
                 );
               })}
             >

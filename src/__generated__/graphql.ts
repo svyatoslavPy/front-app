@@ -1,10 +1,16 @@
 /* eslint-disable */
-import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -17,62 +23,61 @@ export type Scalars = {
 };
 
 export type ChangeStatusUserInput = {
-  status?: InputMaybe<Scalars['Boolean']>;
-  userId?: InputMaybe<Scalars['String']>;
+  status?: InputMaybe<Scalars["Boolean"]>;
+  userId?: InputMaybe<Scalars["String"]>;
 };
 
 export type ChangeStatusUserOutput = {
-  __typename?: 'ChangeStatusUserOutput';
-  status?: Maybe<Scalars['Boolean']>;
+  __typename?: "ChangeStatusUserOutput";
+  status?: Maybe<Scalars["Boolean"]>;
 };
 
 export type Name = {
-  __typename?: 'Name';
-  first?: Maybe<Scalars['String']>;
-  last?: Maybe<Scalars['String']>;
+  __typename?: "Name";
+  first?: Maybe<Scalars["String"]>;
+  last?: Maybe<Scalars["String"]>;
 };
 
 /** columns and relationships of "Project" */
 export type Project = {
-  __typename?: 'Project';
-  domain: Scalars['String'];
-  hasuraPassword: Scalars['uuid'];
-  id: Scalars['uuid'];
-  name: Scalars['String'];
-  passwordhash: Scalars['uuid'];
-  postgresPassword: Scalars['uuid'];
+  __typename?: "Project";
+  domain: Scalars["String"];
+  hasuraPassword: Scalars["uuid"];
+  id: Scalars["uuid"];
+  name: Scalars["String"];
+  passwordhash: Scalars["uuid"];
+  postgresPassword: Scalars["uuid"];
   /** An object relationship */
   provider: Providers;
-  providersid: Scalars['uuid'];
-  type: Scalars['String'];
-  userId: Scalars['String'];
-  version: Scalars['String'];
+  providersid: Scalars["uuid"];
+  type: Scalars["String"];
+  userId: Scalars["String"];
+  version: Scalars["String"];
 };
 
 export type ProjectInput = {
-  projectId: Scalars['String'];
+  projectId: Scalars["String"];
 };
 
 /** aggregated selection of "Project" */
 export type Project_Aggregate = {
-  __typename?: 'Project_aggregate';
+  __typename?: "Project_aggregate";
   aggregate?: Maybe<Project_Aggregate_Fields>;
   nodes: Array<Project>;
 };
 
 /** aggregate fields of "Project" */
 export type Project_Aggregate_Fields = {
-  __typename?: 'Project_aggregate_fields';
-  count: Scalars['Int'];
+  __typename?: "Project_aggregate_fields";
+  count: Scalars["Int"];
   max?: Maybe<Project_Max_Fields>;
   min?: Maybe<Project_Min_Fields>;
 };
 
-
 /** aggregate fields of "Project" */
 export type Project_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Project_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** Boolean expression to filter rows from the table "Project". All fields are combined with a logical 'AND'. */
@@ -96,61 +101,61 @@ export type Project_Bool_Exp = {
 /** unique or primary key constraints on table "Project" */
 export enum Project_Constraint {
   /** unique or primary key constraint on columns "name" */
-  ProjectNameKey = 'Project_name_key',
+  ProjectNameKey = "Project_name_key",
   /** unique or primary key constraint on columns "id" */
-  ProjectPkey = 'Project_pkey'
+  ProjectPkey = "Project_pkey",
 }
 
 /** input type for inserting data into table "Project" */
 export type Project_Insert_Input = {
-  domain?: InputMaybe<Scalars['String']>;
-  hasuraPassword?: InputMaybe<Scalars['uuid']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  name?: InputMaybe<Scalars['String']>;
-  passwordhash?: InputMaybe<Scalars['uuid']>;
-  postgresPassword?: InputMaybe<Scalars['uuid']>;
+  domain?: InputMaybe<Scalars["String"]>;
+  hasuraPassword?: InputMaybe<Scalars["uuid"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  name?: InputMaybe<Scalars["String"]>;
+  passwordhash?: InputMaybe<Scalars["uuid"]>;
+  postgresPassword?: InputMaybe<Scalars["uuid"]>;
   provider?: InputMaybe<Providers_Obj_Rel_Insert_Input>;
-  providersid?: InputMaybe<Scalars['uuid']>;
-  type?: InputMaybe<Scalars['String']>;
-  userId?: InputMaybe<Scalars['String']>;
-  version?: InputMaybe<Scalars['String']>;
+  providersid?: InputMaybe<Scalars["uuid"]>;
+  type?: InputMaybe<Scalars["String"]>;
+  userId?: InputMaybe<Scalars["String"]>;
+  version?: InputMaybe<Scalars["String"]>;
 };
 
 /** aggregate max on columns */
 export type Project_Max_Fields = {
-  __typename?: 'Project_max_fields';
-  domain?: Maybe<Scalars['String']>;
-  hasuraPassword?: Maybe<Scalars['uuid']>;
-  id?: Maybe<Scalars['uuid']>;
-  name?: Maybe<Scalars['String']>;
-  passwordhash?: Maybe<Scalars['uuid']>;
-  postgresPassword?: Maybe<Scalars['uuid']>;
-  providersid?: Maybe<Scalars['uuid']>;
-  type?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['String']>;
-  version?: Maybe<Scalars['String']>;
+  __typename?: "Project_max_fields";
+  domain?: Maybe<Scalars["String"]>;
+  hasuraPassword?: Maybe<Scalars["uuid"]>;
+  id?: Maybe<Scalars["uuid"]>;
+  name?: Maybe<Scalars["String"]>;
+  passwordhash?: Maybe<Scalars["uuid"]>;
+  postgresPassword?: Maybe<Scalars["uuid"]>;
+  providersid?: Maybe<Scalars["uuid"]>;
+  type?: Maybe<Scalars["String"]>;
+  userId?: Maybe<Scalars["String"]>;
+  version?: Maybe<Scalars["String"]>;
 };
 
 /** aggregate min on columns */
 export type Project_Min_Fields = {
-  __typename?: 'Project_min_fields';
-  domain?: Maybe<Scalars['String']>;
-  hasuraPassword?: Maybe<Scalars['uuid']>;
-  id?: Maybe<Scalars['uuid']>;
-  name?: Maybe<Scalars['String']>;
-  passwordhash?: Maybe<Scalars['uuid']>;
-  postgresPassword?: Maybe<Scalars['uuid']>;
-  providersid?: Maybe<Scalars['uuid']>;
-  type?: Maybe<Scalars['String']>;
-  userId?: Maybe<Scalars['String']>;
-  version?: Maybe<Scalars['String']>;
+  __typename?: "Project_min_fields";
+  domain?: Maybe<Scalars["String"]>;
+  hasuraPassword?: Maybe<Scalars["uuid"]>;
+  id?: Maybe<Scalars["uuid"]>;
+  name?: Maybe<Scalars["String"]>;
+  passwordhash?: Maybe<Scalars["uuid"]>;
+  postgresPassword?: Maybe<Scalars["uuid"]>;
+  providersid?: Maybe<Scalars["uuid"]>;
+  type?: Maybe<Scalars["String"]>;
+  userId?: Maybe<Scalars["String"]>;
+  version?: Maybe<Scalars["String"]>;
 };
 
 /** response of any mutation on the table "Project" */
 export type Project_Mutation_Response = {
-  __typename?: 'Project_mutation_response';
+  __typename?: "Project_mutation_response";
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  affected_rows: Scalars["Int"];
   /** data from the rows affected by the mutation */
   returning: Array<Project>;
 };
@@ -179,45 +184,45 @@ export type Project_Order_By = {
 
 /** primary key columns input for table: Project */
 export type Project_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
 /** select columns of table "Project" */
 export enum Project_Select_Column {
   /** column name */
-  Domain = 'domain',
+  Domain = "domain",
   /** column name */
-  HasuraPassword = 'hasuraPassword',
+  HasuraPassword = "hasuraPassword",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Name = 'name',
+  Name = "name",
   /** column name */
-  Passwordhash = 'passwordhash',
+  Passwordhash = "passwordhash",
   /** column name */
-  PostgresPassword = 'postgresPassword',
+  PostgresPassword = "postgresPassword",
   /** column name */
-  Providersid = 'providersid',
+  Providersid = "providersid",
   /** column name */
-  Type = 'type',
+  Type = "type",
   /** column name */
-  UserId = 'userId',
+  UserId = "userId",
   /** column name */
-  Version = 'version'
+  Version = "version",
 }
 
 /** input type for updating data in table "Project" */
 export type Project_Set_Input = {
-  domain?: InputMaybe<Scalars['String']>;
-  hasuraPassword?: InputMaybe<Scalars['uuid']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  name?: InputMaybe<Scalars['String']>;
-  passwordhash?: InputMaybe<Scalars['uuid']>;
-  postgresPassword?: InputMaybe<Scalars['uuid']>;
-  providersid?: InputMaybe<Scalars['uuid']>;
-  type?: InputMaybe<Scalars['String']>;
-  userId?: InputMaybe<Scalars['String']>;
-  version?: InputMaybe<Scalars['String']>;
+  domain?: InputMaybe<Scalars["String"]>;
+  hasuraPassword?: InputMaybe<Scalars["uuid"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  name?: InputMaybe<Scalars["String"]>;
+  passwordhash?: InputMaybe<Scalars["uuid"]>;
+  postgresPassword?: InputMaybe<Scalars["uuid"]>;
+  providersid?: InputMaybe<Scalars["uuid"]>;
+  type?: InputMaybe<Scalars["String"]>;
+  userId?: InputMaybe<Scalars["String"]>;
+  version?: InputMaybe<Scalars["String"]>;
 };
 
 /** Streaming cursor of the table "Project" */
@@ -230,40 +235,40 @@ export type Project_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Project_Stream_Cursor_Value_Input = {
-  domain?: InputMaybe<Scalars['String']>;
-  hasuraPassword?: InputMaybe<Scalars['uuid']>;
-  id?: InputMaybe<Scalars['uuid']>;
-  name?: InputMaybe<Scalars['String']>;
-  passwordhash?: InputMaybe<Scalars['uuid']>;
-  postgresPassword?: InputMaybe<Scalars['uuid']>;
-  providersid?: InputMaybe<Scalars['uuid']>;
-  type?: InputMaybe<Scalars['String']>;
-  userId?: InputMaybe<Scalars['String']>;
-  version?: InputMaybe<Scalars['String']>;
+  domain?: InputMaybe<Scalars["String"]>;
+  hasuraPassword?: InputMaybe<Scalars["uuid"]>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  name?: InputMaybe<Scalars["String"]>;
+  passwordhash?: InputMaybe<Scalars["uuid"]>;
+  postgresPassword?: InputMaybe<Scalars["uuid"]>;
+  providersid?: InputMaybe<Scalars["uuid"]>;
+  type?: InputMaybe<Scalars["String"]>;
+  userId?: InputMaybe<Scalars["String"]>;
+  version?: InputMaybe<Scalars["String"]>;
 };
 
 /** update columns of table "Project" */
 export enum Project_Update_Column {
   /** column name */
-  Domain = 'domain',
+  Domain = "domain",
   /** column name */
-  HasuraPassword = 'hasuraPassword',
+  HasuraPassword = "hasuraPassword",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Name = 'name',
+  Name = "name",
   /** column name */
-  Passwordhash = 'passwordhash',
+  Passwordhash = "passwordhash",
   /** column name */
-  PostgresPassword = 'postgresPassword',
+  PostgresPassword = "postgresPassword",
   /** column name */
-  Providersid = 'providersid',
+  Providersid = "providersid",
   /** column name */
-  Type = 'type',
+  Type = "type",
   /** column name */
-  UserId = 'userId',
+  UserId = "userId",
   /** column name */
-  Version = 'version'
+  Version = "version",
 }
 
 export type Project_Updates = {
@@ -273,90 +278,90 @@ export type Project_Updates = {
 };
 
 export type RecoveryAddresses = {
-  __typename?: 'RecoveryAddresses';
-  created_at?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
-  via?: Maybe<Scalars['String']>;
+  __typename?: "RecoveryAddresses";
+  created_at?: Maybe<Scalars["String"]>;
+  id?: Maybe<Scalars["String"]>;
+  updated_at?: Maybe<Scalars["String"]>;
+  value?: Maybe<Scalars["String"]>;
+  via?: Maybe<Scalars["String"]>;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['String']>;
-  _gt?: InputMaybe<Scalars['String']>;
-  _gte?: InputMaybe<Scalars['String']>;
+  _eq?: InputMaybe<Scalars["String"]>;
+  _gt?: InputMaybe<Scalars["String"]>;
+  _gte?: InputMaybe<Scalars["String"]>;
   /** does the column match the given case-insensitive pattern */
-  _ilike?: InputMaybe<Scalars['String']>;
-  _in?: InputMaybe<Array<Scalars['String']>>;
+  _ilike?: InputMaybe<Scalars["String"]>;
+  _in?: InputMaybe<Array<Scalars["String"]>>;
   /** does the column match the given POSIX regular expression, case insensitive */
-  _iregex?: InputMaybe<Scalars['String']>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _iregex?: InputMaybe<Scalars["String"]>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
   /** does the column match the given pattern */
-  _like?: InputMaybe<Scalars['String']>;
-  _lt?: InputMaybe<Scalars['String']>;
-  _lte?: InputMaybe<Scalars['String']>;
-  _neq?: InputMaybe<Scalars['String']>;
+  _like?: InputMaybe<Scalars["String"]>;
+  _lt?: InputMaybe<Scalars["String"]>;
+  _lte?: InputMaybe<Scalars["String"]>;
+  _neq?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given case-insensitive pattern */
-  _nilike?: InputMaybe<Scalars['String']>;
-  _nin?: InputMaybe<Array<Scalars['String']>>;
+  _nilike?: InputMaybe<Scalars["String"]>;
+  _nin?: InputMaybe<Array<Scalars["String"]>>;
   /** does the column NOT match the given POSIX regular expression, case insensitive */
-  _niregex?: InputMaybe<Scalars['String']>;
+  _niregex?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given pattern */
-  _nlike?: InputMaybe<Scalars['String']>;
+  _nlike?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given POSIX regular expression, case sensitive */
-  _nregex?: InputMaybe<Scalars['String']>;
+  _nregex?: InputMaybe<Scalars["String"]>;
   /** does the column NOT match the given SQL regular expression */
-  _nsimilar?: InputMaybe<Scalars['String']>;
+  _nsimilar?: InputMaybe<Scalars["String"]>;
   /** does the column match the given POSIX regular expression, case sensitive */
-  _regex?: InputMaybe<Scalars['String']>;
+  _regex?: InputMaybe<Scalars["String"]>;
   /** does the column match the given SQL regular expression */
-  _similar?: InputMaybe<Scalars['String']>;
+  _similar?: InputMaybe<Scalars["String"]>;
 };
 
 export type Traits = {
-  __typename?: 'Traits';
-  email?: Maybe<Scalars['String']>;
+  __typename?: "Traits";
+  email?: Maybe<Scalars["String"]>;
   name?: Maybe<Name>;
 };
 
 export type User = {
-  __typename?: 'User';
-  created_at?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  metadata_public?: Maybe<Scalars['String']>;
+  __typename?: "User";
+  created_at?: Maybe<Scalars["String"]>;
+  id?: Maybe<Scalars["String"]>;
+  metadata_public?: Maybe<Scalars["String"]>;
   recovery_addresses?: Maybe<Array<Maybe<RecoveryAddresses>>>;
-  schema_id?: Maybe<Scalars['String']>;
-  schema_url?: Maybe<Scalars['String']>;
-  state?: Maybe<Scalars['String']>;
-  state_changed_at?: Maybe<Scalars['String']>;
+  schema_id?: Maybe<Scalars["String"]>;
+  schema_url?: Maybe<Scalars["String"]>;
+  state?: Maybe<Scalars["String"]>;
+  state_changed_at?: Maybe<Scalars["String"]>;
   traits?: Maybe<Traits>;
-  updated_at?: Maybe<Scalars['String']>;
+  updated_at?: Maybe<Scalars["String"]>;
   verifiable_addresses?: Maybe<Array<Maybe<VerifiableAddresses>>>;
 };
 
 export type Users = {
-  __typename?: 'Users';
+  __typename?: "Users";
   users?: Maybe<Array<Maybe<User>>>;
 };
 
 export type VerifiableAddresses = {
-  __typename?: 'VerifiableAddresses';
-  created_at?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  status?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
-  verified?: Maybe<Scalars['Boolean']>;
-  via?: Maybe<Scalars['String']>;
+  __typename?: "VerifiableAddresses";
+  created_at?: Maybe<Scalars["String"]>;
+  id?: Maybe<Scalars["String"]>;
+  status?: Maybe<Scalars["String"]>;
+  updated_at?: Maybe<Scalars["String"]>;
+  value?: Maybe<Scalars["String"]>;
+  verified?: Maybe<Scalars["Boolean"]>;
+  via?: Maybe<Scalars["String"]>;
 };
 
 /** ordering argument of a cursor */
 export enum Cursor_Ordering {
   /** ascending ordering of the cursor */
-  Asc = 'ASC',
+  Asc = "ASC",
   /** descending ordering of the cursor */
-  Desc = 'DESC'
+  Desc = "DESC",
 }
 
 export type Jsonb_Cast_Exp = {
@@ -367,29 +372,29 @@ export type Jsonb_Cast_Exp = {
 export type Jsonb_Comparison_Exp = {
   _cast?: InputMaybe<Jsonb_Cast_Exp>;
   /** is the column contained in the given json value */
-  _contained_in?: InputMaybe<Scalars['jsonb']>;
+  _contained_in?: InputMaybe<Scalars["jsonb"]>;
   /** does the column contain the given json value at the top level */
-  _contains?: InputMaybe<Scalars['jsonb']>;
-  _eq?: InputMaybe<Scalars['jsonb']>;
-  _gt?: InputMaybe<Scalars['jsonb']>;
-  _gte?: InputMaybe<Scalars['jsonb']>;
+  _contains?: InputMaybe<Scalars["jsonb"]>;
+  _eq?: InputMaybe<Scalars["jsonb"]>;
+  _gt?: InputMaybe<Scalars["jsonb"]>;
+  _gte?: InputMaybe<Scalars["jsonb"]>;
   /** does the string exist as a top-level key in the column */
-  _has_key?: InputMaybe<Scalars['String']>;
+  _has_key?: InputMaybe<Scalars["String"]>;
   /** do all of these strings exist as top-level keys in the column */
-  _has_keys_all?: InputMaybe<Array<Scalars['String']>>;
+  _has_keys_all?: InputMaybe<Array<Scalars["String"]>>;
   /** do any of these strings exist as top-level keys in the column */
-  _has_keys_any?: InputMaybe<Array<Scalars['String']>>;
-  _in?: InputMaybe<Array<Scalars['jsonb']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['jsonb']>;
-  _lte?: InputMaybe<Scalars['jsonb']>;
-  _neq?: InputMaybe<Scalars['jsonb']>;
-  _nin?: InputMaybe<Array<Scalars['jsonb']>>;
+  _has_keys_any?: InputMaybe<Array<Scalars["String"]>>;
+  _in?: InputMaybe<Array<Scalars["jsonb"]>>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
+  _lt?: InputMaybe<Scalars["jsonb"]>;
+  _lte?: InputMaybe<Scalars["jsonb"]>;
+  _neq?: InputMaybe<Scalars["jsonb"]>;
+  _nin?: InputMaybe<Array<Scalars["jsonb"]>>;
 };
 
 /** mutation root */
 export type Mutation_Root = {
-  __typename?: 'mutation_root';
+  __typename?: "mutation_root";
   /** changeStatusUser */
   changeStatusUser?: Maybe<ChangeStatusUserOutput>;
   /** delete data from the table: "Project" */
@@ -422,37 +427,31 @@ export type Mutation_Root = {
   update_providers_many?: Maybe<Array<Maybe<Providers_Mutation_Response>>>;
 };
 
-
 /** mutation root */
 export type Mutation_RootChangeStatusUserArgs = {
   params: ChangeStatusUserInput;
   project: ProjectInput;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_ProjectArgs = {
   where: Project_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Project_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 /** mutation root */
 export type Mutation_RootDelete_ProvidersArgs = {
   where: Providers_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootDelete_Providers_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_ProjectArgs = {
@@ -460,13 +459,11 @@ export type Mutation_RootInsert_ProjectArgs = {
   on_conflict?: InputMaybe<Project_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Project_OneArgs = {
   object: Project_Insert_Input;
   on_conflict?: InputMaybe<Project_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootInsert_ProvidersArgs = {
@@ -474,13 +471,11 @@ export type Mutation_RootInsert_ProvidersArgs = {
   on_conflict?: InputMaybe<Providers_On_Conflict>;
 };
 
-
 /** mutation root */
 export type Mutation_RootInsert_Providers_OneArgs = {
   object: Providers_Insert_Input;
   on_conflict?: InputMaybe<Providers_On_Conflict>;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_ProjectArgs = {
@@ -488,19 +483,16 @@ export type Mutation_RootUpdate_ProjectArgs = {
   where: Project_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Project_By_PkArgs = {
   _set?: InputMaybe<Project_Set_Input>;
   pk_columns: Project_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Project_ManyArgs = {
   updates: Array<Project_Updates>;
 };
-
 
 /** mutation root */
 export type Mutation_RootUpdate_ProvidersArgs = {
@@ -513,7 +505,6 @@ export type Mutation_RootUpdate_ProvidersArgs = {
   where: Providers_Bool_Exp;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Providers_By_PkArgs = {
   _append?: InputMaybe<Providers_Append_Input>;
@@ -525,7 +516,6 @@ export type Mutation_RootUpdate_Providers_By_PkArgs = {
   pk_columns: Providers_Pk_Columns_Input;
 };
 
-
 /** mutation root */
 export type Mutation_RootUpdate_Providers_ManyArgs = {
   updates: Array<Providers_Updates>;
@@ -534,58 +524,56 @@ export type Mutation_RootUpdate_Providers_ManyArgs = {
 /** column ordering options */
 export enum Order_By {
   /** in ascending order, nulls last */
-  Asc = 'asc',
+  Asc = "asc",
   /** in ascending order, nulls first */
-  AscNullsFirst = 'asc_nulls_first',
+  AscNullsFirst = "asc_nulls_first",
   /** in ascending order, nulls last */
-  AscNullsLast = 'asc_nulls_last',
+  AscNullsLast = "asc_nulls_last",
   /** in descending order, nulls first */
-  Desc = 'desc',
+  Desc = "desc",
   /** in descending order, nulls first */
-  DescNullsFirst = 'desc_nulls_first',
+  DescNullsFirst = "desc_nulls_first",
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
+  DescNullsLast = "desc_nulls_last",
 }
 
 /** columns and relationships of "providers" */
 export type Providers = {
-  __typename?: 'providers';
-  id: Scalars['uuid'];
-  providers: Scalars['jsonb'];
-  userId: Scalars['String'];
+  __typename?: "providers";
+  id: Scalars["uuid"];
+  providers: Scalars["jsonb"];
+  userId: Scalars["String"];
 };
-
 
 /** columns and relationships of "providers" */
 export type ProvidersProvidersArgs = {
-  path?: InputMaybe<Scalars['String']>;
+  path?: InputMaybe<Scalars["String"]>;
 };
 
 /** aggregated selection of "providers" */
 export type Providers_Aggregate = {
-  __typename?: 'providers_aggregate';
+  __typename?: "providers_aggregate";
   aggregate?: Maybe<Providers_Aggregate_Fields>;
   nodes: Array<Providers>;
 };
 
 /** aggregate fields of "providers" */
 export type Providers_Aggregate_Fields = {
-  __typename?: 'providers_aggregate_fields';
-  count: Scalars['Int'];
+  __typename?: "providers_aggregate_fields";
+  count: Scalars["Int"];
   max?: Maybe<Providers_Max_Fields>;
   min?: Maybe<Providers_Min_Fields>;
 };
 
-
 /** aggregate fields of "providers" */
 export type Providers_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Providers_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
+  distinct?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** append existing jsonb value of filtered columns with new jsonb value */
 export type Providers_Append_Input = {
-  providers?: InputMaybe<Scalars['jsonb']>;
+  providers?: InputMaybe<Scalars["jsonb"]>;
 };
 
 /** Boolean expression to filter rows from the table "providers". All fields are combined with a logical 'AND'. */
@@ -601,50 +589,50 @@ export type Providers_Bool_Exp = {
 /** unique or primary key constraints on table "providers" */
 export enum Providers_Constraint {
   /** unique or primary key constraint on columns "id" */
-  ProvidersPkey = 'providers_pkey'
+  ProvidersPkey = "providers_pkey",
 }
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type Providers_Delete_At_Path_Input = {
-  providers?: InputMaybe<Array<Scalars['String']>>;
+  providers?: InputMaybe<Array<Scalars["String"]>>;
 };
 
 /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
 export type Providers_Delete_Elem_Input = {
-  providers?: InputMaybe<Scalars['Int']>;
+  providers?: InputMaybe<Scalars["Int"]>;
 };
 
 /** delete key/value pair or string element. key/value pairs are matched based on their key value */
 export type Providers_Delete_Key_Input = {
-  providers?: InputMaybe<Scalars['String']>;
+  providers?: InputMaybe<Scalars["String"]>;
 };
 
 /** input type for inserting data into table "providers" */
 export type Providers_Insert_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  providers?: InputMaybe<Scalars['jsonb']>;
-  userId?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  providers?: InputMaybe<Scalars["jsonb"]>;
+  userId?: InputMaybe<Scalars["String"]>;
 };
 
 /** aggregate max on columns */
 export type Providers_Max_Fields = {
-  __typename?: 'providers_max_fields';
-  id?: Maybe<Scalars['uuid']>;
-  userId?: Maybe<Scalars['String']>;
+  __typename?: "providers_max_fields";
+  id?: Maybe<Scalars["uuid"]>;
+  userId?: Maybe<Scalars["String"]>;
 };
 
 /** aggregate min on columns */
 export type Providers_Min_Fields = {
-  __typename?: 'providers_min_fields';
-  id?: Maybe<Scalars['uuid']>;
-  userId?: Maybe<Scalars['String']>;
+  __typename?: "providers_min_fields";
+  id?: Maybe<Scalars["uuid"]>;
+  userId?: Maybe<Scalars["String"]>;
 };
 
 /** response of any mutation on the table "providers" */
 export type Providers_Mutation_Response = {
-  __typename?: 'providers_mutation_response';
+  __typename?: "providers_mutation_response";
   /** number of rows affected by the mutation */
-  affected_rows: Scalars['Int'];
+  affected_rows: Scalars["Int"];
   /** data from the rows affected by the mutation */
   returning: Array<Providers>;
 };
@@ -672,29 +660,29 @@ export type Providers_Order_By = {
 
 /** primary key columns input for table: providers */
 export type Providers_Pk_Columns_Input = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
 export type Providers_Prepend_Input = {
-  providers?: InputMaybe<Scalars['jsonb']>;
+  providers?: InputMaybe<Scalars["jsonb"]>;
 };
 
 /** select columns of table "providers" */
 export enum Providers_Select_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Providers = 'providers',
+  Providers = "providers",
   /** column name */
-  UserId = 'userId'
+  UserId = "userId",
 }
 
 /** input type for updating data in table "providers" */
 export type Providers_Set_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  providers?: InputMaybe<Scalars['jsonb']>;
-  userId?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  providers?: InputMaybe<Scalars["jsonb"]>;
+  userId?: InputMaybe<Scalars["String"]>;
 };
 
 /** Streaming cursor of the table "providers" */
@@ -707,19 +695,19 @@ export type Providers_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Providers_Stream_Cursor_Value_Input = {
-  id?: InputMaybe<Scalars['uuid']>;
-  providers?: InputMaybe<Scalars['jsonb']>;
-  userId?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars["uuid"]>;
+  providers?: InputMaybe<Scalars["jsonb"]>;
+  userId?: InputMaybe<Scalars["String"]>;
 };
 
 /** update columns of table "providers" */
 export enum Providers_Update_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Providers = 'providers',
+  Providers = "providers",
   /** column name */
-  UserId = 'userId'
+  UserId = "userId",
 }
 
 export type Providers_Updates = {
@@ -739,7 +727,7 @@ export type Providers_Updates = {
 };
 
 export type Query_Root = {
-  __typename?: 'query_root';
+  __typename?: "query_root";
   /** fetch data from the table: "Project" */
   Project: Array<Project>;
   /** fetch aggregated fields from the table: "Project" */
@@ -756,59 +744,52 @@ export type Query_Root = {
   providers_by_pk?: Maybe<Providers>;
 };
 
-
 export type Query_RootProjectArgs = {
   distinct_on?: InputMaybe<Array<Project_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Project_Order_By>>;
   where?: InputMaybe<Project_Bool_Exp>;
 };
-
 
 export type Query_RootProject_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Project_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Project_Order_By>>;
   where?: InputMaybe<Project_Bool_Exp>;
 };
 
-
 export type Query_RootProject_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
-
 
 export type Query_RootGetUsersArgs = {
   project: ProjectInput;
 };
 
-
 export type Query_RootProvidersArgs = {
   distinct_on?: InputMaybe<Array<Providers_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Providers_Order_By>>;
   where?: InputMaybe<Providers_Bool_Exp>;
 };
-
 
 export type Query_RootProviders_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Providers_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Providers_Order_By>>;
   where?: InputMaybe<Providers_Bool_Exp>;
 };
 
-
 export type Query_RootProviders_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
 export type Subscription_Root = {
-  __typename?: 'subscription_root';
+  __typename?: "subscription_root";
   /** fetch data from the table: "Project" */
   Project: Array<Project>;
   /** fetch aggregated fields from the table: "Project" */
@@ -827,124 +808,667 @@ export type Subscription_Root = {
   providers_stream: Array<Providers>;
 };
 
-
 export type Subscription_RootProjectArgs = {
   distinct_on?: InputMaybe<Array<Project_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Project_Order_By>>;
   where?: InputMaybe<Project_Bool_Exp>;
 };
-
 
 export type Subscription_RootProject_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Project_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Project_Order_By>>;
   where?: InputMaybe<Project_Bool_Exp>;
 };
 
-
 export type Subscription_RootProject_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
-
 export type Subscription_RootProject_StreamArgs = {
-  batch_size: Scalars['Int'];
+  batch_size: Scalars["Int"];
   cursor: Array<InputMaybe<Project_Stream_Cursor_Input>>;
   where?: InputMaybe<Project_Bool_Exp>;
 };
 
-
 export type Subscription_RootProvidersArgs = {
   distinct_on?: InputMaybe<Array<Providers_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Providers_Order_By>>;
   where?: InputMaybe<Providers_Bool_Exp>;
 };
-
 
 export type Subscription_RootProviders_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Providers_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
   order_by?: InputMaybe<Array<Providers_Order_By>>;
   where?: InputMaybe<Providers_Bool_Exp>;
 };
 
-
 export type Subscription_RootProviders_By_PkArgs = {
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 };
 
-
 export type Subscription_RootProviders_StreamArgs = {
-  batch_size: Scalars['Int'];
+  batch_size: Scalars["Int"];
   cursor: Array<InputMaybe<Providers_Stream_Cursor_Input>>;
   where?: InputMaybe<Providers_Bool_Exp>;
 };
 
 /** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
 export type Uuid_Comparison_Exp = {
-  _eq?: InputMaybe<Scalars['uuid']>;
-  _gt?: InputMaybe<Scalars['uuid']>;
-  _gte?: InputMaybe<Scalars['uuid']>;
-  _in?: InputMaybe<Array<Scalars['uuid']>>;
-  _is_null?: InputMaybe<Scalars['Boolean']>;
-  _lt?: InputMaybe<Scalars['uuid']>;
-  _lte?: InputMaybe<Scalars['uuid']>;
-  _neq?: InputMaybe<Scalars['uuid']>;
-  _nin?: InputMaybe<Array<Scalars['uuid']>>;
+  _eq?: InputMaybe<Scalars["uuid"]>;
+  _gt?: InputMaybe<Scalars["uuid"]>;
+  _gte?: InputMaybe<Scalars["uuid"]>;
+  _in?: InputMaybe<Array<Scalars["uuid"]>>;
+  _is_null?: InputMaybe<Scalars["Boolean"]>;
+  _lt?: InputMaybe<Scalars["uuid"]>;
+  _lte?: InputMaybe<Scalars["uuid"]>;
+  _neq?: InputMaybe<Scalars["uuid"]>;
+  _nin?: InputMaybe<Array<Scalars["uuid"]>>;
 };
 
 export type GetProjectQueryVariables = Exact<{
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 }>;
 
-
-export type GetProjectQuery = { __typename?: 'query_root', Project_by_pk?: { __typename?: 'Project', id: any, hasuraPassword: any, name: string, postgresPassword: any, userId: string, domain: string, providersid: any, provider: { __typename?: 'providers', providers: any } } | null };
+export type GetProjectQuery = {
+  __typename?: "query_root";
+  Project_by_pk?: {
+    __typename?: "Project";
+    id: any;
+    hasuraPassword: any;
+    name: string;
+    postgresPassword: any;
+    userId: string;
+    domain: string;
+    providersid: any;
+    provider: { __typename?: "providers"; providers: any };
+  } | null;
+};
 
 export type UpdateProvidersMutationVariables = Exact<{
-  id: Scalars['uuid'];
-  providers: Scalars['jsonb'];
+  id: Scalars["uuid"];
+  providers: Scalars["jsonb"];
 }>;
 
+export type UpdateProvidersMutation = {
+  __typename?: "mutation_root";
+  update_providers_by_pk?: {
+    __typename?: "providers";
+    providers: any;
+    id: any;
+  } | null;
+};
 
-export type UpdateProvidersMutation = { __typename?: 'mutation_root', update_providers_by_pk?: { __typename?: 'providers', providers: any, id: any } | null };
+export type GetUsersQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetUsersQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetUsersQuery = { __typename?: 'query_root', getUsers?: { __typename?: 'Users', users?: Array<{ __typename?: 'User', id?: string | null, metadata_public?: string | null, created_at?: string | null, schema_id?: string | null, schema_url?: string | null, state?: string | null, state_changed_at?: string | null, updated_at?: string | null, traits?: { __typename?: 'Traits', email?: string | null, name?: { __typename?: 'Name', first?: string | null, last?: string | null } | null } | null, verifiable_addresses?: Array<{ __typename?: 'VerifiableAddresses', id?: string | null, verified?: boolean | null, via?: string | null, value?: string | null, updated_at?: string | null, status?: string | null, created_at?: string | null } | null> | null } | null> | null } | null };
+export type GetUsersQuery = {
+  __typename?: "query_root";
+  getUsers?: {
+    __typename?: "Users";
+    users?: Array<{
+      __typename?: "User";
+      id?: string | null;
+      metadata_public?: string | null;
+      created_at?: string | null;
+      schema_id?: string | null;
+      schema_url?: string | null;
+      state?: string | null;
+      state_changed_at?: string | null;
+      updated_at?: string | null;
+      traits?: {
+        __typename?: "Traits";
+        email?: string | null;
+        name?: {
+          __typename?: "Name";
+          first?: string | null;
+          last?: string | null;
+        } | null;
+      } | null;
+      verifiable_addresses?: Array<{
+        __typename?: "VerifiableAddresses";
+        id?: string | null;
+        verified?: boolean | null;
+        via?: string | null;
+        value?: string | null;
+        updated_at?: string | null;
+        status?: string | null;
+        created_at?: string | null;
+      } | null> | null;
+    } | null> | null;
+  } | null;
+};
 
 export type DeleteMutationVariables = Exact<{
-  id: Scalars['uuid'];
+  id: Scalars["uuid"];
 }>;
 
-
-export type DeleteMutation = { __typename?: 'mutation_root', delete_Project_by_pk?: { __typename?: 'Project', id: any } | null };
+export type DeleteMutation = {
+  __typename?: "mutation_root";
+  delete_Project_by_pk?: { __typename?: "Project"; id: any } | null;
+};
 
 export type AddProjectMutationVariables = Exact<{
-  name: Scalars['String'];
-  domain: Scalars['String'];
-  type: Scalars['String'];
+  name: Scalars["String"];
+  domain: Scalars["String"];
+  type: Scalars["String"];
 }>;
 
+export type AddProjectMutation = {
+  __typename?: "mutation_root";
+  insert_Project_one?: {
+    __typename?: "Project";
+    name: string;
+    id: any;
+    postgresPassword: any;
+    hasuraPassword: any;
+  } | null;
+};
 
-export type AddProjectMutation = { __typename?: 'mutation_root', insert_Project_one?: { __typename?: 'Project', name: string, id: any, postgresPassword: any, hasuraPassword: any } | null };
+export type ListProjectsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type ListProjectsQueryVariables = Exact<{ [key: string]: never; }>;
+export type ListProjectsQuery = {
+  __typename?: "query_root";
+  Project: Array<{ __typename?: "Project"; id: any; name: string }>;
+};
 
-
-export type ListProjectsQuery = { __typename?: 'query_root', Project: Array<{ __typename?: 'Project', id: any, name: string }> };
-
-
-export const GetProjectDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetProject"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Project_by_pk"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"hasuraPassword"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"postgresPassword"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"domain"}},{"kind":"Field","name":{"kind":"Name","value":"provider"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"providers"}}]}},{"kind":"Field","name":{"kind":"Name","value":"providersid"}}]}}]}}]} as unknown as DocumentNode<GetProjectQuery, GetProjectQueryVariables>;
-export const UpdateProvidersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateProviders"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"providers"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"jsonb"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"update_providers_by_pk"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pk_columns"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"_set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"providers"},"value":{"kind":"Variable","name":{"kind":"Name","value":"providers"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"providers"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<UpdateProvidersMutation, UpdateProvidersMutationVariables>;
-export const GetUsersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getUsers"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getUsers"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"project"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"projectId"},"value":{"kind":"StringValue","value":"89a8f182-a964-470b-9d24-0602639269a7","block":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"users"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"metadata_public"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"schema_id"}},{"kind":"Field","name":{"kind":"Name","value":"schema_url"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"state_changed_at"}},{"kind":"Field","name":{"kind":"Name","value":"updated_at"}},{"kind":"Field","name":{"kind":"Name","value":"traits"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"name"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"first"}},{"kind":"Field","name":{"kind":"Name","value":"last"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"verifiable_addresses"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"verified"}},{"kind":"Field","name":{"kind":"Name","value":"via"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"updated_at"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetUsersQuery, GetUsersQueryVariables>;
-export const DeleteDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Delete"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"delete_Project_by_pk"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteMutation, DeleteMutationVariables>;
-export const AddProjectDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AddProject"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"name"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"domain"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"type"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"insert_Project_one"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"object"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"provider"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"data"},"value":{"kind":"ObjectValue","fields":[]}}]}},{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"Variable","name":{"kind":"Name","value":"name"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"domain"},"value":{"kind":"Variable","name":{"kind":"Name","value":"domain"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"type"},"value":{"kind":"Variable","name":{"kind":"Name","value":"type"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"postgresPassword"}},{"kind":"Field","name":{"kind":"Name","value":"hasuraPassword"}}]}}]}}]} as unknown as DocumentNode<AddProjectMutation, AddProjectMutationVariables>;
-export const ListProjectsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ListProjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Project"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<ListProjectsQuery, ListProjectsQueryVariables>;
+export const GetProjectDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "GetProject" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "id" } },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "uuid" } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "Project_by_pk" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "id" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "id" },
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "hasuraPassword" },
+                },
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "postgresPassword" },
+                },
+                { kind: "Field", name: { kind: "Name", value: "userId" } },
+                { kind: "Field", name: { kind: "Name", value: "domain" } },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "provider" },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "providers" },
+                      },
+                    ],
+                  },
+                },
+                { kind: "Field", name: { kind: "Name", value: "providersid" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<GetProjectQuery, GetProjectQueryVariables>;
+export const UpdateProvidersDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "UpdateProviders" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "id" } },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "uuid" } },
+          },
+        },
+        {
+          kind: "VariableDefinition",
+          variable: {
+            kind: "Variable",
+            name: { kind: "Name", value: "providers" },
+          },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "jsonb" } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "update_providers_by_pk" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "pk_columns" },
+                value: {
+                  kind: "ObjectValue",
+                  fields: [
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "id" },
+                      value: {
+                        kind: "Variable",
+                        name: { kind: "Name", value: "id" },
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "_set" },
+                value: {
+                  kind: "ObjectValue",
+                  fields: [
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "providers" },
+                      value: {
+                        kind: "Variable",
+                        name: { kind: "Name", value: "providers" },
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "providers" } },
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  UpdateProvidersMutation,
+  UpdateProvidersMutationVariables
+>;
+export const GetUsersDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "getUsers" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "getUsers" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "project" },
+                value: {
+                  kind: "ObjectValue",
+                  fields: [
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "projectId" },
+                      value: {
+                        kind: "StringValue",
+                        value: "89a8f182-a964-470b-9d24-0602639269a7",
+                        block: false,
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "users" },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "metadata_public" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "created_at" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "schema_id" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "schema_url" },
+                      },
+                      { kind: "Field", name: { kind: "Name", value: "state" } },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "state_changed_at" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "updated_at" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "traits" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "email" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "name" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "first" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "last" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "verifiable_addresses" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "id" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "verified" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "via" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "value" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "updated_at" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "status" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "created_at" },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<GetUsersQuery, GetUsersQueryVariables>;
+export const DeleteDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "Delete" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "id" } },
+          type: {
+            kind: "NonNullType",
+            type: { kind: "NamedType", name: { kind: "Name", value: "uuid" } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "delete_Project_by_pk" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "id" },
+                value: {
+                  kind: "Variable",
+                  name: { kind: "Name", value: "id" },
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<DeleteMutation, DeleteMutationVariables>;
+export const AddProjectDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "mutation",
+      name: { kind: "Name", value: "AddProject" },
+      variableDefinitions: [
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "name" } },
+          type: {
+            kind: "NonNullType",
+            type: {
+              kind: "NamedType",
+              name: { kind: "Name", value: "String" },
+            },
+          },
+        },
+        {
+          kind: "VariableDefinition",
+          variable: {
+            kind: "Variable",
+            name: { kind: "Name", value: "domain" },
+          },
+          type: {
+            kind: "NonNullType",
+            type: {
+              kind: "NamedType",
+              name: { kind: "Name", value: "String" },
+            },
+          },
+        },
+        {
+          kind: "VariableDefinition",
+          variable: { kind: "Variable", name: { kind: "Name", value: "type" } },
+          type: {
+            kind: "NonNullType",
+            type: {
+              kind: "NamedType",
+              name: { kind: "Name", value: "String" },
+            },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "insert_Project_one" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "object" },
+                value: {
+                  kind: "ObjectValue",
+                  fields: [
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "provider" },
+                      value: {
+                        kind: "ObjectValue",
+                        fields: [
+                          {
+                            kind: "ObjectField",
+                            name: { kind: "Name", value: "data" },
+                            value: { kind: "ObjectValue", fields: [] },
+                          },
+                        ],
+                      },
+                    },
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "name" },
+                      value: {
+                        kind: "Variable",
+                        name: { kind: "Name", value: "name" },
+                      },
+                    },
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "domain" },
+                      value: {
+                        kind: "Variable",
+                        name: { kind: "Name", value: "domain" },
+                      },
+                    },
+                    {
+                      kind: "ObjectField",
+                      name: { kind: "Name", value: "type" },
+                      value: {
+                        kind: "Variable",
+                        name: { kind: "Name", value: "type" },
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "postgresPassword" },
+                },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "hasuraPassword" },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<AddProjectMutation, AddProjectMutationVariables>;
+export const ListProjectsDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "ListProjects" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "Project" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ListProjectsQuery, ListProjectsQueryVariables>;

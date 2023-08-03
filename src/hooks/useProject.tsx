@@ -50,7 +50,7 @@ export const ProjectProvider = ({
     () => ({
       project: data?.Project_by_pk,
     }),
-    [data?.Project_by_pk]
+    [data?.Project_by_pk],
   );
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;

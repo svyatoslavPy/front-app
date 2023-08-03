@@ -56,10 +56,7 @@ export const GithubProviderSettings = ({
             });
           })}
         >
-          <Box
-            display="grid"
-            gridTemplateColumns="1fr 5fr 1fr"
-          >
+          <Box display="grid" gridTemplateColumns="1fr 5fr 1fr">
             <Box display="grid" rowGap={2} gridColumn="2">
               <FormGroup>
                 <FormControlLabel
