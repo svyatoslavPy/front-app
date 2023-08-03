@@ -8,9 +8,10 @@ import {
 	ListItemText,
 	Toolbar,
 } from '@mui/material'
+
 import { Outlet, useNavigate, useParams } from 'react-router-dom'
 import { ProjectProvider } from '../../hooks/useProject'
-const drawerWidth = 60
+// const drawerWidth = 60
 
 export const ProjectRoot = () => {
 	const navigate = useNavigate()
@@ -27,7 +28,12 @@ export const ProjectRoot = () => {
 								navigate('database', { replace: true })
 							}}
 						>
-							<ListItemText primary='Database' style={{ color: 'white' }} />
+							<ListItemText
+								primary='Database'
+								sx={{
+									color: 'white',
+								}}
+							/>
 						</ListItemButton>
 					</ListItem>
 				</List>
@@ -39,7 +45,12 @@ export const ProjectRoot = () => {
 								navigate('graphql', { replace: true })
 							}}
 						>
-							<ListItemText primary='Graphql' style={{ color: 'white' }} />
+							<ListItemText
+								primary='Graphql'
+								sx={{
+									color: 'white',
+								}}
+							/>
 						</ListItemButton>
 					</ListItem>
 				</List>
@@ -50,7 +61,12 @@ export const ProjectRoot = () => {
 								navigate('hasura', { replace: true })
 							}}
 						>
-							<ListItemText primary='Hasura' style={{ color: 'white' }} />
+							<ListItemText
+								primary='Hasura'
+								sx={{
+									color: 'white',
+								}}
+							/>
 						</ListItemButton>
 					</ListItem>
 				</List>
@@ -61,7 +77,12 @@ export const ProjectRoot = () => {
 								navigate('auth', { replace: true })
 							}}
 						>
-							<ListItemText primary='Auth' style={{ color: 'white' }} />
+							<ListItemText
+								primary='Auth'
+								sx={{
+									color: 'white',
+								}}
+							/>
 						</ListItemButton>
 					</ListItem>
 				</List>
@@ -74,7 +95,12 @@ export const ProjectRoot = () => {
 								navigate('site', { replace: true })
 							}}
 						>
-							<ListItemText primary='Site' style={{ color: 'white' }} />
+							<ListItemText
+								primary='Site'
+								sx={{
+									color: 'white',
+								}}
+							/>
 						</ListItemButton>
 					</ListItem>
 				</List>
@@ -86,7 +112,12 @@ export const ProjectRoot = () => {
 								navigate('storage', { replace: true })
 							}}
 						>
-							<ListItemText primary='Storage' style={{ color: 'white' }} />
+							<ListItemText
+								primary='Storage'
+								sx={{
+									color: 'white',
+								}}
+							/>
 						</ListItemButton>
 					</ListItem>
 				</List>
@@ -98,7 +129,12 @@ export const ProjectRoot = () => {
 								navigate('function', { replace: true })
 							}}
 						>
-							<ListItemText primary='Function' style={{ color: 'white' }} />
+							<ListItemText
+								primary='Function'
+								sx={{
+									color: 'white',
+								}}
+							/>
 						</ListItemButton>
 					</ListItem>
 				</List>
@@ -110,7 +146,12 @@ export const ProjectRoot = () => {
 								navigate('monitoring', { replace: true })
 							}}
 						>
-							<ListItemText primary='Monitoring' style={{ color: 'white' }} />
+							<ListItemText
+								primary='Monitoring'
+								sx={{
+									color: 'white',
+								}}
+							/>
 						</ListItemButton>
 					</ListItem>
 				</List>
@@ -121,16 +162,18 @@ export const ProjectRoot = () => {
 								navigate('settings/general', { replace: true })
 							}}
 						>
-							<ListItemText primary='Settings' style={{ color: 'white' }} />
+							<ListItemText
+								primary='Settings'
+								sx={{
+									color: 'white',
+								}}
+							/>
 						</ListItemButton>
 					</ListItem>
 				</List>
 			</Box>
 			<Divider orientation='vertical' flexItem />
-
-			{/* <Box sx={{ flexGrow: 1, p: 3 }}> */}
 			<Outlet />
-			{/* </Box> */}
 		</ProjectProvider>
 	)
 }

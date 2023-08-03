@@ -39,7 +39,12 @@ export const Root = () => {
 									navigate('projects', { replace: true })
 								}}
 							>
-								<ListItemText primary={'Projects'} style={{ color: 'white' }} />
+								<ListItemText
+									primary={'Projects'}
+									sx={{
+										color: 'white',
+									}}
+								/>
 							</ListItemButton>
 						</ListItem>
 					</List>
@@ -51,7 +56,12 @@ export const Root = () => {
 									logout()
 								}}
 							>
-								<ListItemText primary={'Logout'} style={{ color: 'white' }} />
+								<ListItemText
+									primary={'Logout'}
+									sx={{
+										color: 'white',
+									}}
+								/>
 							</ListItemButton>
 						</ListItem>
 					</List>

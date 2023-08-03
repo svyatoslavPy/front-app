@@ -1,32 +1,16 @@
-import { Box } from '@mui/material'
-import { useProject } from 'hooks/useProject'
-import { useState } from 'react'
+import { Typography, Button, Box, Input } from '@mui/material'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import { styled } from '@mui/material/styles'
 
-// const StyledImg = styled('img')({})
+import { useProject } from 'hooks/useProject'
+import { useCopy } from 'hooks/useCopy'
+
+
+const StyledImg = styled('img')({})
 
 export const Hasura = () => {
 	const { project } = useProject()
-	const imgPath = 'https://app.nhost.io/assets/hasuramodal.svg'
-	const [isCopied, setIsCopied] = useState(false)
-
-	async function copyTextToClipboard(text: string) {
-		if ('clipboard' in navigator) {
-			return await navigator.clipboard.writeText(text)
-		}
-	}
-
-	const handleCopySecretKey = () => {
-		copyTextToClipboard(project.hasuraPassword)
-			.then(() => {
-				setIsCopied(true)
-				setTimeout(() => {
-					setIsCopied(false)
-				}, 300)
-			})
-			.catch(err => {
-				console.log(err)
-			})
-	}
+	const { handleCopyText } = useCopy(project.hasuraPassword)
 
 	return (
 		<Box
@@ -38,37 +22,91 @@ export const Hasura = () => {
 				alignItems: 'center',
 			}}
 		>
-			<div className='hasura-card'>
-				<img src={imgPath} alt='img' />
-				<p className='hasura-card__title'>Open Hasura</p>
-				<p className='hasura-card__subtitle'>
-					Hasura is the dashboard you'll use to edit your schema and permissions
-					as well as browse data. Copy the admin secret to your clipboard and
-					enter it in the next screen.
-				</p>
-				<div className='hasura-card-items'>
-					<div className='hasura-card-items-item--special'>
-						<p>Admin secret</p>
-					</div>
-					<div className='hasura-card-items-item'>
-						<input
-							type={isCopied ? 'text' : 'password'}
-							disabled={true}
-							className={isCopied ? 'isCopied' : ''}
-							value={project.hasuraPassword}
-						></input>
-						<button onClick={() => handleCopySecretKey()}>Copy</button>
-					</div>
-				</div>
-				{/* <p>hasura pass: {project.hasuraPassword}</p> */}
-				<a
-					className='hasura-card__btn'
-					href={`https://${project.domain}/hasura/`}
-					target='_blank'
+			<StyledImg
+				src='https://app.nhost.io/assets/hasuramodal.svg'
+				alt='Photo by Markus Spiske from Pexels'
+				sx={{
+					width: 72,
+				}}
+			/>
+			<Typography
+				paragraph={true}
+				sx={{
+					color: 'white',
+					fontWeight: 600,
+					fontSize: '1.125rem',
+					marginTop: '15px',
+				}}
+			>
+				Open Hasura
+			</Typography>
+			<Typography
+				sx={{
+					color: 'rgb(223, 236, 245)',
+					textAlign: 'center',
+					width: '30%',
+				}}
+				paragraph={true}
+			>
+				Hasura is the dashboard you'll use to edit your schema and permissions
+				as well as browse data. Copy the admin secret to your clipboard and
+				enter it in the next screen.
+			</Typography>
+
+			<Box
+				sx={{
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'space-between',
+					columnGap: '90px',
+					borderTop: '1px solid rgb(47, 54, 61)',
+					marginTop: '10px',
+					borderBottom: '1px solid rgb(47, 54, 61)',
+					paddingTop: '7px',
+					paddingBottom: '7px',
+				}}
+			>
+				<Box>
+					<Typography
+						sx={{
+							color: 'white',
+						}}
+					>
+						Admin secret
+					</Typography>
+				</Box>
+				<Box
+					sx={{
+						display: 'flex',
+						columnGap: '13px',
+					}}
 				>
-					Open hasura
-				</a>
-			</div>
+					<Input
+						type={'password'}
+						disabled={false}
+						disableUnderline={true}
+						defaultValue={project.hasuraPassword}
+						sx={{ color: 'white' }}
+					></Input>
+					<Button onClick={() => handleCopyText()}>
+						<ContentCopyIcon />
+					</Button>
+				</Box>
+			</Box>
+			<Button
+				href={`https://${project.domain}/hasura/`}
+				target='_blank'
+				size='large'
+				sx={{
+					marginTop: '20px',
+					width: '32%',
+					backgroundColor: 'rgb(56, 136, 255)',
+					color: 'white',
+					'&.MuiButton-root:hover': { bgcolor: 'rgb(56, 136, 255)' },
+				}}
+			>
+				Open hasura
+			</Button>
 		</Box>
 	)
 }
